@@ -20,7 +20,7 @@ class Vehicle(ABC):
         return self._fuel
 
     @fuel.setter
-    def fuel(self,fuel_level):
+    def fuel(self, fuel_level):
         if fuel_level < 0:
             raise LowFuelError
         self._fuel = fuel_level
@@ -30,8 +30,8 @@ class Vehicle(ABC):
         return self._fuel_consumption
 
     @fuel_consumption.setter
-    def fuel_consumption(self,fuel_level):
-        if fuel_level > self._fuel :
+    def fuel_consumption(self, fuel_level):
+        if fuel_level > self._fuel:
             raise NotEnoughFuel
         self._fuel_consumption = fuel_level
 
@@ -57,4 +57,3 @@ class Vehicle(ABC):
                 raise NotEnoughFuel
         else:
             raise ValueError
-

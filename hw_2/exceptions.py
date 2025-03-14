@@ -1,10 +1,16 @@
 class LowFuelError(Exception):
-    pass
+
+    def __str__(self):
+        return 'Низкий уровень топлива'
 
 
 class NotEnoughFuel(Exception):
-    pass
+
+    def __str__(self):
+        return 'Недостаточно топлива'
 
 
 class CargoOverload(Exception):
-    pass
+
+    def __str__(self):
+        return 'Перегруз'

@@ -3,6 +3,9 @@ import json
 
 
 def read_users(file):
+    """
+    Чтение json файла и выделение нужных ключей
+    """
     with open(file, 'r') as file_users:
         users = json.load(file_users)
         users_list = []
@@ -19,6 +22,9 @@ def read_users(file):
 
 
 def read_books(file):
+    """
+    Чтение csv файла и выделение нужных столбцов
+    """
     with open(file, 'r') as file_books:
         books = csv.DictReader(file_books)
         books_list = []
@@ -34,6 +40,9 @@ def read_books(file):
 
 
 def distribute_books(books, users):
+    """
+    Распределение книг по пользователям и запись в json файл
+    """
     books_num = len(books)
     users_num = len(users)
     base_count = books_num // users_num

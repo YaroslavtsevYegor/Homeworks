@@ -1,7 +1,7 @@
 import pytest
 
 
-# Test API: https://dog.ceo/api
+# Test API: https://www.openbrewerydb.org/
 def pytest_addoption(parser):
     parser.addoption(
         "--url",

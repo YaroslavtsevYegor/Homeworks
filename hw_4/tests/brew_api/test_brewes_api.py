@@ -1,33 +1,7 @@
-from typing import Optional, List
-
 import requests
 import pytest
-from pydantic import BaseModel
 
-
-class Brewery(BaseModel):
-    id: str
-    name: str
-    brewery_type: str
-    address_1: Optional[str]
-    address_2: Optional[str]
-    address_3: Optional[str]
-    city: str
-    state_province: str
-    postal_code: str
-    country: str
-    longitude: Optional[str]
-    latitude: Optional[str]
-    phone: Optional[str]
-    website_url: Optional[str]
-    state: str
-    street: Optional[str]
-
-
-class BreweryMetaListResponse(BaseModel):
-    total: str
-    page: str
-    per_page: str
+from Homeworks.hw_4.breweries_models import Brewery, BreweryMetaListResponse
 
 
 def test_get_all_breweries(base_url):
@@ -73,4 +47,3 @@ def test_get_breweries_by_city_and_type(base_url, city, brewery_type):
     for brewery in data:
         assert city in brewery.city
         assert brewery_type == brewery.brewery_type
-

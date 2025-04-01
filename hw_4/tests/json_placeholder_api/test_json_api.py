@@ -1,28 +1,7 @@
 import requests
 import pytest
-from pydantic import BaseModel
 
-
-class Comment(BaseModel):
-    postId: int
-    id: int
-    name: str
-    email: str
-    body: str
-
-
-class Post(BaseModel):
-    userId: int
-    id: int
-    title: str
-    body: str
-
-
-class Todo(BaseModel):
-    userId: int
-    id: int
-    title: str
-    completed: bool
+from Homeworks.hw_4.json_placeholder_models import Todo, Comment, Post
 
 
 @pytest.mark.parametrize("post_id", [1, 12, 23])
@@ -87,4 +66,3 @@ def test_get_user_todo(base_url, id):
     data = [Todo.model_validate(item) for item in response.json()]
     for value in data:
         assert value.userId == id
-

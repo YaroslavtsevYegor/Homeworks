@@ -1,21 +1,7 @@
 import requests
 import pytest
-from pydantic import BaseModel
 
-
-class DogImageResponse(BaseModel):
-    message: str
-    status: str
-
-
-class DogImagesResponse(BaseModel):
-    message: list
-    status: str
-
-
-class DogBreedsResponse(BaseModel):
-    message: dict
-    status: str
+from Homeworks.hw_4.dogs_models import DogImageResponse, DogImagesResponse, DogBreedsResponse
 
 
 def test_all_breeds_list(base_url):
@@ -55,4 +41,3 @@ def test_sub_breed_in_breed(base_url, breed, sub_breed):
     data = DogImagesResponse.model_validate(response.json())
     assert response.status_code == 200
     assert sub_breed in data.message
-

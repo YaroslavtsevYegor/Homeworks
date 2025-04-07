@@ -5,12 +5,14 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def test_title(browser):
     browser.get(browser.current_url + "/catalog/desktops")
-    WebDriverWait(browser, 5).until(EC.title_is('Desktops'))
+    element = WebDriverWait(browser, 5).until(EC.title_is('Desktops'))
+    assert browser.title == 'Desktops'
 
 
 def test_images(browser):
     browser.get(browser.current_url + "/catalog/desktops")
-    WebDriverWait(browser, 5).until(EC.visibility_of_element_located((By.CLASS_NAME, "img-fluid")))
+    element = WebDriverWait(browser, 5).until(EC.visibility_of_element_located((By.CLASS_NAME, "img-fluid")))
+    assert element.is_displayed()
 
 
 def test_header_text(browser):
@@ -20,9 +22,12 @@ def test_header_text(browser):
 
 def test_compare_button(browser):
     browser.get(browser.current_url + "/catalog/desktops")
-    WebDriverWait(browser, 5).until(EC.visibility_of_element_located((By.ID, 'compare-total')))
+    element = WebDriverWait(browser, 5).until(EC.visibility_of_element_located((By.ID, 'compare-total')))
+    assert element.is_displayed()
 
 
 def test_hidden_sorting(browser):
     browser.get(browser.current_url + "/catalog/desktops")
-    WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.XPATH, "//*[text() = 'Price (Low > High)']")))
+    element = WebDriverWait(browser, 5).until(
+        EC.presence_of_element_located((By.XPATH, "//option[text() = 'Price (Low > High)']")))
+    assert element.is_displayed()

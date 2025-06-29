@@ -1,0 +1,33 @@
+from selenium.webdriver.common.by import By
+
+
+class AccountPageLocators(object):
+
+    edit_account_information_button = By.XPATH, "//a[contains(text(),'Edit your account information')]"
+    new_address_button = By.XPATH, "//a[contains(text(),'New Address')]"
+    first_name_field = By.ID, "input-firstname"
+    last_name_field = By.ID, "input-lastname"
+    address_1_field = By.ID, "input-address-1"
+    city_field = By.ID, "input-city"
+    postcode_field = By.ID, "input-postcode"
+    country_field = By.ID, "input-country"
+    region_state_field = By.ID, "input-zone"
+    default_address_button = By.XPATH, "//input[@value='1']"
+    email_field = By.ID, "input-email"
+    telephone_field = By.ID, "input-telephone"
+    password_field = By.ID, "input-password"
+    confirm_password_field = By.ID, "input-confirm"
+    privacy_policy_checkbox = By.XPATH, "//input[@name='agree']"
+    continue_registration_button = By.XPATH, "//input[@value='Continue']"
+    continue_button = By.XPATH, "//a[contains(text(),'Continue')]"
+    login_as_customer_button = By.XPATH, "//input[@value='Login']"
+    modify_address_button = By.XPATH, "//a[contains(text(),'Modify your address book entries')]"
+    order_history_table = By.XPATH, "//table[contains(@class, 'table-bordered') and contains(@class, 'table-hover')]"
+    order_history_table_rows = By.XPATH, "//tbody/tr"
+    order_history_table_cells = By.XPATH, "./td"
+    add_to_cart_wishlist = By.XPATH, "//button[@onclick=\"cart.add('42');\"]"
+    view_order_button = By.XPATH, "//a[@data-original-title='View']"
+    return_order_button = By.XPATH, "//a[@data-original-title='Return']"
+    return_reason_button = By.XPATH, "//input[@value=2]"
+    submit_button = By.XPATH, "//input[@value='Submit']"
+    product_returns_notification = By.XPATH, "//h1[contains(text(),'Product Returns')]"
